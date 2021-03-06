@@ -84,6 +84,8 @@
         android:layout_width="153dp"
         android:layout_height="51dp"
 
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="29dp"
         android:background="@drawable/roundstyle"
         android:backgroundTint="#E1BC91"
         android:clickable="true"
@@ -91,14 +93,17 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#3F9E8F"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/createAcnt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="480dp" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Button
         android:id="@+id/createAcnt"
         android:layout_width="153dp"
         android:layout_height="51dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/roundstyle"
         android:backgroundTint="#E1BC91"
         android:clickable="true"
@@ -106,18 +111,21 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#3F9E8F"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="560dp" />
+        app:layout_constraintTop_toBottomOf="@+id/signIn" />
 
     <ImageView
         android:id="@+id/palmTree"
         android:layout_width="255dp"
         android:layout_height="380dp"
-        android:tint="#3F9E8F"
+        android:layout_marginTop="468dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/palm_png"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="444dp" />
+        app:tint="#3F9E8F" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
