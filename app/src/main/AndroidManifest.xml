@@ -9,10 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".eventCheckIn"></activity>
+        <activity android:name=".upcomingEvents" />
+        <activity android:name=".chatScreen" />
+        <activity android:name=".pointsScreen" />
         <activity
             android:name=".mainView"
             android:label="@string/title_activity_main_view"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" />

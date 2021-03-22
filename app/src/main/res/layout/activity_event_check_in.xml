@@ -127,7 +127,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Alright boys this is where the content for the homescreen goes"
+                android:text="Event Check in Screen"
                 android:textSize="24sp" />
         </LinearLayout>
     </ScrollView>
