@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#62AEB8"
+
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -78,14 +78,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <Button
         android:id="@+id/signIn"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="153dp"
-        android:layout_height="51dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="141dp"
+        android:layout_height="69dp"
 
         android:layout_marginTop="52dp"
-        android:layout_marginBottom="29dp"
         android:background="@drawable/roundstyle"
         android:backgroundTint="#E1BC91"
         android:clickable="true"
@@ -93,36 +93,19 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#3F9E8F"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/createAcnt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
-
-    <Button
-        android:id="@+id/createAcnt"
-        android:layout_width="153dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="100dp"
-        android:background="@drawable/roundstyle"
-        android:backgroundTint="#E1BC91"
-        android:clickable="true"
-        android:text="Create Account"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#3F9E8F"
-        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signIn" />
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_bias="0.016" />
 
     <ImageView
         android:id="@+id/palmTree"
         android:layout_width="255dp"
         android:layout_height="380dp"
-        android:layout_marginTop="468dp"
+        android:layout_marginTop="420dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/palm_png"
