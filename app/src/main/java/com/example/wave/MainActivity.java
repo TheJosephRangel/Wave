@@ -7,10 +7,18 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     //Test comment
+    Connection connect;
+    String ConnectionResults = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent3);
                 break;
             case R.id.checkinButton:
-                Intent intent4 = new Intent(this, eventCheckIn.class);
+                Intent intent4 = new Intent(this, location.class);
                 startActivity(intent4);
                 break;
             case R.id.profileButton:
@@ -64,7 +72,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent5);
                 break;
         }
+    }
+
+    //@Override
+    public void TestSQLData(View v)
+    {
+        TextView homePageText = (TextView) findViewById(R.id.textView3);
+
+        try {
+            SQLConnection connectionHelper = new SQLConnection();
+            connect = connectionHelper.CONN();
+            if(connect!=null)
+            {
+                String query = "Select * from Rewards";
+                Statement st = connect.createStatement();
+                ResultSet rs = st.executeQuery(query);
+
+                while(rs.next())
+                {
+                    homePageText.setText(rs.getString(1));
+                }
+            }
         }
+        catch (Exception e){
+
+        }
+    }
 
 
 
