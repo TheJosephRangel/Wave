@@ -1,12 +1,26 @@
 package com.example.wave;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
+import android.webkit.URLUtil;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
+import java.net.URL;
+import java.util.regex.Pattern;
 
 public class eventCheckIn extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,6 +36,8 @@ public class eventCheckIn extends AppCompatActivity implements View.OnClickListe
         ImageView checkinButton = findViewById(R.id.checkinButton);
         ImageView profileButton = findViewById(R.id.profileButton);
 
+        Button btnQR = findViewById(R.id.btnQR);
+
         checkinButton.setColorFilter(Color.argb(255, 227, 208, 185));
 
 
@@ -31,6 +47,8 @@ public class eventCheckIn extends AppCompatActivity implements View.OnClickListe
         calendarButton.setOnClickListener(this);
         checkinButton.setOnClickListener(this);
         profileButton.setOnClickListener(this);
+
+        btnQR.setOnClickListener(this);
     }
 
     @Override
@@ -60,6 +78,61 @@ public class eventCheckIn extends AppCompatActivity implements View.OnClickListe
                 Intent intent5 = new Intent(this, profile.class);
                 startActivity(intent5);
                 break;
+            case R.id.btnQR:
+                IntentIntegrator intInt = new IntentIntegrator(eventCheckIn.this);
+                intInt.setPrompt("Use Volume Up Key for Flash");
+                intInt.setBeepEnabled(true);
+                intInt.setOrientationLocked(true);
+                intInt.setCaptureActivity(Capture.class);
+                intInt.initiateScan();
+                break;
         }
+    }
+    // function to check if QR result is a link
+    public static boolean checkURL(CharSequence input) {
+        if (TextUtils.isEmpty(input)) {
+            return false;
+        }
+        Pattern URL_PATTERN = Patterns.WEB_URL;
+        boolean isURL = URL_PATTERN.matcher(input).matches();
+        if (!isURL) {
+            String urlString = input + "";
+            if (URLUtil.isNetworkUrl(urlString)) {
+                try {
+                    new URL(urlString);
+                    isURL = true;
+                } catch (Exception e) {
+                }
+            }
+        }
+        return isURL;
+    }
+
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        IntentResult intRes = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+
+        if(intRes.getContents() != null)
+        {
+            checkURL(intRes.getContents());
+            AlertDialog.Builder builder = new AlertDialog.Builder(eventCheckIn.this);
+            builder.setTitle("Result");
+            builder.setMessage(intRes.getContents());
+            builder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder.show();
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(), "Oops...Didn't get a solid read on that, buddy", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }
