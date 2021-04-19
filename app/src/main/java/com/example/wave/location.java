@@ -1,7 +1,10 @@
 package com.example.wave;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.PermissionChecker;
 import androidx.fragment.app.FragmentActivity;
 
+import android.Manifest;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -12,6 +15,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class location extends FragmentActivity implements OnMapReadyCallback {
+    private static final int REQUEST_CODE_PERMISSION = 2;
+    String mPermission = Manifest.permission.ACCESS_FINE_LOCATION;
 
     private GoogleMap mMap;
 
@@ -19,6 +24,18 @@ public class location extends FragmentActivity implements OnMapReadyCallback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
+
+        try{
+            if(ActivityCompat.checkSelfPermission(this, mPermission) != PermissionChecker.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{mPermission}, REQUEST_CODE_PERMISSION);
+                //If any permission above is not allowed by the user, this condition will execute every time, else the else block will work
+            } else {
+                //Executes if ACCESS_FINE_LOCATION is not enabled
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
