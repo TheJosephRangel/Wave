@@ -37,6 +37,7 @@ public class eventCheckIn extends AppCompatActivity implements View.OnClickListe
         ImageView profileButton = findViewById(R.id.profileButton);
 
         Button btnQR = findViewById(R.id.btnQR);
+        Button btnLocation = findViewById(R.id.btnLocation);
 
         checkinButton.setColorFilter(Color.argb(255, 227, 208, 185));
 
@@ -49,6 +50,8 @@ public class eventCheckIn extends AppCompatActivity implements View.OnClickListe
         profileButton.setOnClickListener(this);
 
         btnQR.setOnClickListener(this);
+        btnLocation.setOnClickListener(this);
+
     }
 
     @Override
@@ -85,6 +88,10 @@ public class eventCheckIn extends AppCompatActivity implements View.OnClickListe
                 intInt.setOrientationLocked(true);
                 intInt.setCaptureActivity(Capture.class);
                 intInt.initiateScan();
+                break;
+            case R.id.btnLocation:
+                Intent intent6 = new Intent(this, location.class);
+                startActivity(intent6);
                 break;
         }
     }
