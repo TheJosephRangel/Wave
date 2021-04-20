@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent3);
                 break;
             case R.id.checkinButton:
-                Intent intent4 = new Intent(this, location.class);
+                Intent intent4 = new Intent(this, eventCheckIn.class);
                 startActivity(intent4);
                 break;
             case R.id.profileButton:
