@@ -1,5 +1,6 @@
 package com.example.wave;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,15 +10,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    //Test comment
-    Connection connect;
-    String ConnectionResults = "";
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, ValueEventListener {
+
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private DatabaseReference mRootReference = firebaseDatabase.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,31 +77,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    //@Override
-    public void TestSQLData(View v)
-    {
-        TextView homePageText = (TextView) findViewById(R.id.textView3);
-
-        try {
-            SQLConnection connectionHelper = new SQLConnection();
-            connect = connectionHelper.CONN();
-            if(connect!=null)
-            {
-                String query = "Select * from Rewards";
-                Statement st = connect.createStatement();
-                ResultSet rs = st.executeQuery(query);
-
-                while(rs.next())
-                {
-                    homePageText.setText(rs.getString(1));
-                }
-            }
-        }
-        catch (Exception e){
-
-        }
+    @Override
+    public void onDataChange(@NonNull DataSnapshot snapshot) {
+        //Android Firebase Realtime database - Basic Read & Write Operation: 13 minutes in
     }
 
+    @Override
+    public void onCancelled(@NonNull DatabaseError error) {
 
-
+    }
 }

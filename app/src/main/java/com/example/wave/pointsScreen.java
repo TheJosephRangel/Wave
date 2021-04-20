@@ -1,5 +1,6 @@
 package com.example.wave;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -8,8 +9,20 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-public class pointsScreen extends AppCompatActivity implements View.OnClickListener {
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+public class pointsScreen extends AppCompatActivity implements View.OnClickListener, ValueEventListener {
+
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
+    
+    TextView rewardView = findViewById(R.id.textView3);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +45,13 @@ public class pointsScreen extends AppCompatActivity implements View.OnClickListe
         calendarButton.setOnClickListener(this);
         checkinButton.setOnClickListener(this);
         profileButton.setOnClickListener(this);
+
+        rootNode = FirebaseDatabase.getInstance();
+        reference = rootNode.getReference("Users");
+        
+        RewardsHelper rewardsHelper = null;
+        rewardsHelper.getRewardValue();
+        
     }
 
 
@@ -64,6 +84,16 @@ public class pointsScreen extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent5);
                 break;
         }
+
+    }
+
+    @Override
+    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+    }
+
+    @Override
+    public void onCancelled(@NonNull DatabaseError error) {
 
     }
 }
