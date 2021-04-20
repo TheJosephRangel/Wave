@@ -9,6 +9,17 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="599dp"
+        android:layout_height="519dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Title"
+        app:layout_constraintVertical_bias="0.711"
+        app:srcCompat="@drawable/tamucc_arial_view" />
+
+    <ImageView
         android:id="@+id/chatButton"
         android:layout_width="67dp"
         android:layout_height="47dp"
@@ -110,31 +121,54 @@
         app:srcCompat="@drawable/ic_home_black_24dp"
         app:tint="#62AEB8" />
 
-    <ScrollView
-        android:layout_width="395dp"
-        android:layout_height="575dp"
+
+    <Button
+        android:id="@+id/btnQR"
+        android:layout_width="170dp"
+        android:layout_height="120dp"
+        android:background="@drawable/roundstyle"
+        android:backgroundTint="#62AEB8"
+        android:clickable="true"
+        android:text="Scan QR"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.937"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Title"
+        app:layout_constraintVertical_bias="0.852" />
+
+    <Button
+        android:id="@+id/btnLocation"
+        android:layout_width="170dp"
+        android:layout_height="120dp"
+        android:background="@drawable/roundstyle"
+        android:backgroundTint="#62AEB8"
+        android:clickable="true"
+        android:text="Get Location"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Title"
+        app:layout_constraintVertical_bias="0.852" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="351dp"
+        android:layout_height="77dp"
+        android:text="Check-in to your event"
+        android:textAlignment="center"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Event Check in Screen"
-                android:textSize="24sp" />
-
-            <com.google.android.gms.maps.MapView
-                android:id="@+id/mapView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-    </ScrollView>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.179" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
