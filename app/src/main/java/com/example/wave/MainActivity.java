@@ -17,10 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, ValueEventListener {
-
-    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    private DatabaseReference mRootReference = firebaseDatabase.getReference();
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,15 +72,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent5);
                 break;
         }
-    }
-
-    @Override
-    public void onDataChange(@NonNull DataSnapshot snapshot) {
-        //Android Firebase Realtime database - Basic Read & Write Operation: 13 minutes in
-    }
-
-    @Override
-    public void onCancelled(@NonNull DatabaseError error) {
-
     }
 }

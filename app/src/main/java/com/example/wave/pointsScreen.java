@@ -17,12 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class pointsScreen extends AppCompatActivity implements View.OnClickListener, ValueEventListener {
-
-    FirebaseDatabase rootNode;
-    DatabaseReference reference;
-    
-    TextView rewardView = findViewById(R.id.textView3);
+public class pointsScreen extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +41,6 @@ public class pointsScreen extends AppCompatActivity implements View.OnClickListe
         checkinButton.setOnClickListener(this);
         profileButton.setOnClickListener(this);
 
-        rootNode = FirebaseDatabase.getInstance();
-        reference = rootNode.getReference("Users");
-        
-        RewardsHelper rewardsHelper = null;
-        rewardsHelper.getRewardValue();
-        
     }
 
 
@@ -87,13 +76,4 @@ public class pointsScreen extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-    }
-
-    @Override
-    public void onCancelled(@NonNull DatabaseError error) {
-
-    }
 }
