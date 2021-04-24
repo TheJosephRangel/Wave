@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -90,8 +91,28 @@ public class eventCheckIn extends AppCompatActivity implements View.OnClickListe
                 intInt.initiateScan();
                 break;
             case R.id.btnLocation:
-                Intent intent6 = new Intent(this, location.class);
-                startActivity(intent6);
+                GPSTracker gps = new GPSTracker(eventCheckIn.this); //Initialize GPSTracker for obtaining location latitude and longitude
+
+                if(gps.canGetLocation()) //check if GPS enabled
+                {
+                    double latitude = gps.getLatitude();
+                    double longitude = gps.getLongitude();
+//                    Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+
+//                    double latitude = 37.7749;
+//                    double longitude = -122.4194;
+                    String locString = "geo::" + latitude + "," + longitude + "?z=15"; //String that holds the Uri for the Google Maps Intent
+                    Uri gmIntentUri = Uri.parse(locString);
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmIntentUri); //Create intent to Google Maps
+//                    mapIntent.setPackage(com.google.android.apps.maps); //Sets specific app to start as Google Maps
+                    startActivity(mapIntent);
+                } else {
+                    //Can't get location, GPS or Network not enabled
+                    //Ask user to enable GPS/network in settings
+                    gps.showSettingsAlert();
+                }
+//                Intent intent6 = new Intent(this, location.class);
+//                startActivity(intent6);
                 break;
         }
     }
