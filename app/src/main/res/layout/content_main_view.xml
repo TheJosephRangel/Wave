@@ -132,7 +132,7 @@
                 android:text=" New Reward Added." />
 
             <TextView
-                android:id="@+id/NotifLineBreak_1"
+                android:id="@+id/LineBreak"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@android:color/black" />
