@@ -110,26 +110,36 @@
         app:srcCompat="@drawable/ic_home_black_24dp"
         app:tint="#62AEB8" />
 
-    <ScrollView
-        android:layout_width="395dp"
-        android:layout_height="575dp"
+    <EditText
+        android:id="@+id/messageEditText"
+        android:layout_width="335sp"
+        android:layout_height="50sp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="75dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sendButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/sendButton"
+        android:layout_width="40sp"
+        android:layout_height="50sp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="75dp"
+        app:tint="#62AEB8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/messageEditText"
+        app:srcCompat="@android:drawable/ic_menu_send" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatRecyclerView"
+        android:layout_width="400sp"
+        android:layout_height="500sp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/messageEditText"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/WelcomeTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="now on chat screen!"
-                android:textSize="24sp" />
-        </LinearLayout>
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@+id/Title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

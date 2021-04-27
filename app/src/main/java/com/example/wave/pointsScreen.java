@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,12 +14,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +21,7 @@ public class pointsScreen extends AppCompatActivity implements View.OnClickListe
 
     private RecyclerView rewardsRecycler;
     private List<Rewards> mRewards;
+    //TextView RewardsCount = (TextView) findViewById(R.id.AvailRewardsValueTextValue);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +36,6 @@ public class pointsScreen extends AppCompatActivity implements View.OnClickListe
         ImageView profileButton = findViewById(R.id.profileButton);
 
         pointsButton.setColorFilter(Color.argb(255, 227, 208, 185));
-
 
         homeButton.setOnClickListener(this);
         pointsButton.setOnClickListener(this);
@@ -128,6 +121,10 @@ public class pointsScreen extends AppCompatActivity implements View.OnClickListe
         mRewards.add(rewards11);
 
         rewardsRecycler.setAdapter(new RewardAdapter(mRewards));
+
+        String ListCountSize = String.valueOf(mRewards.size());
+        System.out.println(ListCountSize);
+        //RewardsCount.setText(ListCountSize);
     }
 
     class RewardAdapter extends RecyclerView.Adapter<RewardViewHolder>{
@@ -153,14 +150,15 @@ public class pointsScreen extends AppCompatActivity implements View.OnClickListe
             return this.mRewards.size();
         }
     }
+
     class RewardViewHolder extends RecyclerView.ViewHolder{
         private TextView RewardName;
         private TextView RewardLocation;
         private TextView RewardValue;
         public RewardViewHolder(ViewGroup container){
             super(LayoutInflater.from(pointsScreen.this).inflate(R.layout.reward_tile, container, false));
-            RewardName = (TextView) itemView.findViewById(R.id.RewardTitle);
-            RewardLocation = (TextView) itemView.findViewById(R.id.LocationText);
+            RewardName = (TextView) itemView.findViewById(R.id.RewardsTitle);
+            RewardLocation = (TextView) itemView.findViewById(R.id.RewardsLocation);
             RewardValue = (TextView) itemView.findViewById(R.id.RewardValue);
         }
         public void bind(Rewards reward){

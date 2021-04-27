@@ -5,45 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+
     <TextView
-        android:id="@+id/RewardsTitle"
+        android:id="@+id/ChatMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
-        android:text="Reward Name"
-        android:textSize="20sp"
+        android:text="TextView"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/RewardsLocation"
+        android:id="@+id/ChatSender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:fontFamily="sans-serif"
-        android:text="Reward Location"
-        android:textSize="16sp"
+        android:text="TextView"
+        android:textSize="16dp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RewardsTitle" />
-
-    <TextView
-        android:id="@+id/RewardValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="5dp"
-        android:text="Reward Value"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/ChatMessage" />
 
     <TextView
         android:id="@+id/LineBreak"

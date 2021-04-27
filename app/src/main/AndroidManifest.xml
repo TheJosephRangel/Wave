@@ -46,7 +46,8 @@
         <activity android:name=".profile" />
         <activity android:name=".eventCheckIn" />
         <activity android:name=".upcomingEvents" />
-        <activity android:name=".chatScreen" />
+        <activity android:name=".chatScreen"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".pointsScreen" />
         <activity
             android:name=".mainView"
