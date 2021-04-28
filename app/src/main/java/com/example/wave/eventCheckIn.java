@@ -40,7 +40,7 @@ public class eventCheckIn extends AppCompatActivity implements View.OnClickListe
         Button btnQR = findViewById(R.id.btnQR);
         Button btnLocation = findViewById(R.id.btnLocation);
 
-        checkinButton.setColorFilter(Color.argb(255, 227, 208, 185));
+        checkinButton.setColorFilter(Color.argb(255, 225, 188, 145));
 
 
         homeButton.setOnClickListener(this);

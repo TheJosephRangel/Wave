@@ -35,7 +35,7 @@ public class pointsScreen extends AppCompatActivity implements View.OnClickListe
         ImageView checkinButton = findViewById(R.id.checkinButton);
         ImageView profileButton = findViewById(R.id.profileButton);
 
-        pointsButton.setColorFilter(Color.argb(255, 227, 208, 185));
+        pointsButton.setColorFilter(Color.argb(255, 225, 188, 145));
 
         homeButton.setOnClickListener(this);
         pointsButton.setOnClickListener(this);

@@ -11,7 +11,7 @@
         android:layout_height="32dp"
         android:layout_margin="4dp"
         app:cardCornerRadius="4dp"
-        app:cardBackgroundColor="#FF9800">
+        app:cardBackgroundColor="#E1BC91">
 
         <TextView
             android:layout_width="match_parent"

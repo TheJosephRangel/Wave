@@ -34,7 +34,7 @@ public class chatScreen extends AppCompatActivity implements View.OnClickListene
         ImageView checkinButton = findViewById(R.id.checkinButton);
         ImageView profileButton = findViewById(R.id.profileButton);
 
-        chatButton.setColorFilter(Color.argb(255, 227, 208, 185));
+        chatButton.setColorFilter(Color.argb(255, 225, 188, 145));
 
 
         homeButton.setOnClickListener(this);

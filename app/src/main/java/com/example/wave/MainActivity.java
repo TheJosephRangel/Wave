@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageView checkinButton = findViewById(R.id.checkinButton);
         ImageView profileButton = findViewById(R.id.profileButton);
 
-        homeButton.setColorFilter(Color.argb(255, 227, 208, 185));
+        homeButton.setColorFilter(Color.argb(255, 225, 188, 145));
 
 
         homeButton.setOnClickListener(this);

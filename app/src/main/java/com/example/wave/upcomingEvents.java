@@ -53,6 +53,8 @@ public class upcomingEvents extends AppCompatActivity implements View.OnClickLis
         descHash.put("event", presentProperty);
         descHash.put("event1", presentProperty);
         descHash.put("event2", presentProperty);
+        descHash.put("event3", presentProperty);
+        descHash.put("event4", presentProperty);
 
         //set hash variables in calendar
         calendar.setMapDescToProp(descHash);
@@ -63,6 +65,8 @@ public class upcomingEvents extends AppCompatActivity implements View.OnClickLis
         dateHash.put(30, "event");
         dateHash.put(22, "event1");
         dateHash.put(12, "event2");
+        dateHash.put(17, "event3");
+        dateHash.put(26, "event4");
         calendar.setDate(cal, dateHash);
 
         calendar.setOnDateSelectedListener(new OnDateSelectedListener() {
@@ -111,6 +115,34 @@ public class upcomingEvents extends AppCompatActivity implements View.OnClickLis
                     });
                     builder2.show();
                 }
+                else if(desc == dateHash.get(17))
+                {
+                    String eventDesc2 = "Islander beach clean-up day. 10:00 AM - 3:00pm";
+                    AlertDialog.Builder builder2 = new AlertDialog.Builder(upcomingEvents.this);
+                    builder2.setTitle("Event Description");
+                    builder2.setMessage(eventDesc2);
+                    builder2.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder2.show();
+                }
+                else if(desc == dateHash.get(26))
+                {
+                    String eventDesc2 = "Poster sale in the University Center. 11:00 AM - 2:00 PM";
+                    AlertDialog.Builder builder2 = new AlertDialog.Builder(upcomingEvents.this);
+                    builder2.setTitle("Event Description");
+                    builder2.setMessage(eventDesc2);
+                    builder2.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder2.show();
+                }
                 else
                 {
                     Toast.makeText(upcomingEvents.this, "Nothing to see here", Toast.LENGTH_SHORT).show();
@@ -120,7 +152,7 @@ public class upcomingEvents extends AppCompatActivity implements View.OnClickLis
         });
 
 
-        calendarButton.setColorFilter(Color.argb(255, 227, 208, 185));
+        calendarButton.setColorFilter(Color.argb(255, 225, 188, 145));
 
 
         homeButton.setOnClickListener(this);
